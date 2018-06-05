@@ -1,4 +1,4 @@
-401 JS --  Lab 37 Full-Stack Auth
+# 401 JS --  Lab 37 Full-Stack Auth
 
 ## Submission Instructions
   * Work in a fork of this repository
