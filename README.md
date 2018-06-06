@@ -1,42 +1,51 @@
+
 # 401 JS --  Lab 37 Full-Stack Auth
 
-## Submission Instructions
-  * Work in a fork of this repository
-  * Work in a branch on your fork
-  * Submit a pull request to this repository
-  * Submit a link to your pull request on canvas
-  * Submit a question, observation, and how long you spent on canvas  
+## Overview
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was to build user authentication for a full-stack React/Redux application  using basic auth and bearer auth conventions.  
+This application contains asyncronous as well as syncronous action creators that are triggered by a users behavior.  For example, when a user attempts to signup or login an action creator is triggered onSubmit of a form element which triggers a state change in the redux store.  This functionality is asyncronous as an HTTP POST request is sent by the server to a MongoDB.  The front end then needs to wait for a response to be returned by the server.  Once the response is received, the functions are process in the call stack sycronously.    
 
-## Configuration  
-#### backend/
-* Copy your mid-project into this directory
-  * Remove the .git folder from the backend project directory before committing
-  
-#### frontend/
-* Develop your entire front-end under this folder
- 
-## Feature Tasks 
-* Implement Login/Signup functionality for your mid-term project.
-* Use react/redux best practices
-* Add reporter and thunk middleware to your redux store
-* make async action creators for making ajax requests to your backend
-* make sync action creators for updating your app store
+## Getting Started
+In order to get started with this code please fork and clone the repo. You will need a number of dependencies in order to run this project. See the package.json for a list of dependencies. The front end of this project runs via a webpack build.  The webpack.dev.js and webpack.common.js files are set to build the front end application to run in the browser using the npm run watch command.  Ensure you run this is the frontend directory. This script will run a development version of the project by enabling webpack-dev-server which hot reloads the build based on changes to the code and will open a local version of the project in your browser.  Note: webpack-dev-server is not suitable for production code.
 
-#### Components
-```
-Provider
-  App
-    AuthRedirect
-    Landing
-      // handle login and signup
-    Dashboard
-      // display main app
-```
+##Architecture
+This project is built using Javascript ES6 with transpilation using Babel. The code is bundled via webpack.
 
-* Implement a Landing route that allows a user to signup and login to the application.
-* Manage the frontend routes based on the clients authorization
-  * If the user is not logged in they should be forced to remain on the landing route(s)
-  * If the user is logged in they should not permitted to remain on the landing route(s)
+- Main.js contains an entry point to the React Application and contains the store which holds the application state.
 
-##  Documentation  
-Write a description of the project in your README.md
+- Reducer/token.js: This module contains the reducer function that takes in the previous state and returns a new application state. It can SET a token or REMOVE a token.
+
+- Action/auth.js: This module contains the action functions which are part of the reducer. It defines two sync functions, setTokenAction and removeTokenAction as well as two async functions, signupRequest and loginRequest.  These functions are async because they are waiting on a response from a RESTAPI.
+
+- App.js: this component contains the routes to AuthLanding, for signup and login utilizing the Auth-form and dashboard components.
+
+- Auth-form.js:  this component contains an input form for a user to sign up or login to the application.  The input fields trigger handleSubmit and handleAction member methods.  
+
+- Auth-landing.js:  AuthLanding contains the rendering lifecycle hooks that will be displayed depending on which route is selected by the user including signup, login or /...
+
+- Auth-redirect.js:  this component contains a key piece of logic that determines which determines if a destination route exists and if a token is present and returns a redirect displaying the appropriate component dependent on the route.
+
+- Dashboard.js: This module is the destination route when a user has successfully entered information into the authFrom and made it passed /signup OR /login.  
+
+- Redux Middleware
+
+    - redux-reporter.js:  This module sets up redux middleware console message that reports out in the following cases:
+
+        - ACTION: When an action is dispactched by a component a console message will log that includes the action type and payload.
+        - STATE: When the redux store changes state, a console message will log detailing the updated state.
+        - ERROR: IN the event that there is an error in the redux middleware chain, an error message will be logged to the console.
+    - redux-session.js:
+        - This module sets up a middleware function call that iterates over the redux store object and calls a next callback when an action is dispatched to change the state of the redux store. If does this by currying multiple callbacks and storing the result of an action into a result binding and current state of the store into a state binding.
+
+##Change Log
+- 06-05-2018 1:00pm - 2:00pm - built project repo, set-up back-end
+- 06-05-2018 2:00pm - 3:30pm - built front-end project scaffolding and starter work on the Actions, lib, reducer and routes
+- 06-05-2018 03:45pm - 05:00pm - built the components
+- 06-05-2018 05:00pm - 6:30pm -troubleshooting the POST and GET routes.  
+- 06-05-2018 06:30pm - 07:00pm - Project working
+- 06-05-2018 10:30pm - 11:30pm - confirming functionality and documentation
+
+##Credits and Collaborations
+- Thanks Vinicio for the demo code.  
+- Thanks to 'slugbyte/sluggram' which is the origin of the forked backend repo running in this project. 
+- Special thanks to Daniel Shelton, Ryan Groesch and Sarah Geyer for assistance and troubleshooting and being generally awesome rubber ducks.
