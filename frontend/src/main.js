@@ -7,8 +7,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import App from './components/app/app';
 import reducers from './reducer';
 import thunk from './lib/redux-thunk';
+import session from './lib/redux-session';
+import reporter from './lib/redux-reporter';
 
-const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk)));
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(thunk, reporter, session)));
 
 const appContainer = document.createElement('div');
 document.body.appendChild(appContainer);
