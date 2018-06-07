@@ -15,7 +15,7 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
 
 - Reducer/token.js: This module contains the reducer function that takes in the previous state and returns a new application state. It can SET a token or REMOVE a token.
 
-- Action/auth.js: This module contains the action functions which are part of the reducer. It defines two sync functions, setTokenAction and removeTokenAction as well as two async functions, signupRequest and loginRequest.  These functions are async because they are waiting on a response from a RESTAPI.
+- Action/auth.js: This module contains the action functions which are part of the reducer. It defines two sync functions, setToken and removeTokenAction as well as two async functions, signupRequest and loginRequest.  These functions are async because they are waiting on a response from a RESTAPI.
 
 - App.js: this component contains the routes to AuthLanding, for signup and login utilizing the Auth-form and dashboard components.
 
