@@ -1,8 +1,10 @@
 
-# 401 JS --  Lab 37 Full-Stack Auth
+# 401 JS --  Lab 39 Form Validation
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was to build user authentication for a full-stack React/Redux application  using basic auth and bearer auth conventions.  
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was integrate form validation error checking into the front-end of a full-stack react/redux application.  
+
+to build user authentication for a full-stack React/Redux application  using basic auth and bearer auth conventions.  
 This application contains asyncronous as well as syncronous action creators that are triggered by a users behavior.  For example, when a user attempts to signup or login an action creator is triggered onSubmit of a form element which triggers a state change in the redux store.  This functionality is asyncronous as an HTTP POST request is sent by the server to a MongoDB.  The front end then needs to wait for a response to be returned by the server.  Once the response is received, the functions are process in the call stack sycronously.    
 
 ## Getting Started
