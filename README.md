@@ -1,9 +1,9 @@
 
-# 401 JS --  Lab 37 Full-Stack Auth
+# 401 JS --  Lab 38 Full-Stack Token Management
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was to build user authentication for a full-stack React/Redux application  using basic auth and bearer auth conventions.  
-This application contains asyncronous as well as syncronous action creators that are triggered by a users behavior.  For example, when a user attempts to signup or login an action creator is triggered onSubmit of a form element which triggers a state change in the redux store.  This functionality is asyncronous as an HTTP POST request is sent by the server to a MongoDB.  The front end then needs to wait for a response to be returned by the server.  Once the response is received, the functions are process in the call stack sycronously.    
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was integrate token persistence using cookies which get stored in the database via a POST route to /signup.  Then a user can logout and login at a later date by submitting a login to the /login route which triggers a GET request to the database which returns a success and a token if the username and password are correct.  
+
 
 ## Getting Started
 In order to get started with this code please fork and clone the repo. You will need a number of dependencies in order to run this project. See the package.json for a list of dependencies. The front end of this project runs via a webpack build.  The webpack.dev.js and webpack.common.js files are set to build the front end application to run in the browser using the npm run watch command.  Ensure you run this is the frontend directory. This script will run a development version of the project by enabling webpack-dev-server which hot reloads the build based on changes to the code and will open a local version of the project in your browser.  Note: webpack-dev-server is not suitable for production code.
@@ -31,21 +31,19 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
 
     - redux-reporter.js:  This module sets up redux middleware console message that reports out in the following cases:
 
-        - ACTION: When an action is dispactched by a component a console message will log that includes the action type and payload.
+        - ACTION: When an action is dispatched by a component a console message will log that includes the action type and payload.
         - STATE: When the redux store changes state, a console message will log detailing the updated state.
         - ERROR: IN the event that there is an error in the redux middleware chain, an error message will be logged to the console.
     - redux-session.js:
         - This module sets up a middleware function call that iterates over the redux store object and calls a next callback when an action is dispatched to change the state of the redux store. If does this by currying multiple callbacks and storing the result of an action into a result binding and current state of the store into a state binding.
 
 ##Change Log
-- 06-05-2018 1:00pm - 2:00pm - built project repo, set-up back-end
-- 06-05-2018 2:00pm - 3:30pm - built front-end project scaffolding and starter work on the Actions, lib, reducer and routes
-- 06-05-2018 03:45pm - 05:00pm - built the components
-- 06-05-2018 05:00pm - 6:30pm -troubleshooting the POST and GET routes.  
-- 06-05-2018 06:30pm - 07:00pm - Project working
-- 06-05-2018 10:30pm - 11:30pm - confirming functionality and documentation
+- 06-07-2018 1:00pm - 2:00pm - added new components and actions.  
+- 06-09-2018 9:00am - 11:00am -troubleshooting fetchCookie and deleteCookie
+- 06-09-2018 05:00pm - 06:00pm - Project working
+- 06-11-2018 2:00pm - 2:30pm - confirming functionality and documentation
 
 ##Credits and Collaborations
 - Thanks Vinicio for the demo code.  
 - Thanks to 'slugbyte/sluggram' which is the origin of the forked backend repo running in this project. 
-- Special thanks to Daniel Shelton, Ryan Groesch and Sarah Geyer for assistance and troubleshooting and being generally awesome rubber ducks.
+

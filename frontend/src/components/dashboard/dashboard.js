@@ -1,5 +1,5 @@
 import React from 'react';
-import { Welcome } from '../../text';
+import { WELCOME } from '../../text';
 
 class Dashboard extends React.Component {
   render() {

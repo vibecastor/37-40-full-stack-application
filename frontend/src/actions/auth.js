@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 import * as routes from '../routes';
-import deleteCookie from '../utils/cookie';
+import { deleteCookie } from '../utils/cookie';
 import { TOKEN_COOKIE_KEY } from '../utils/constants';
 
 //-------------------
@@ -11,7 +11,7 @@ export const setToken = token => ({
   payload: token,
 });
 
-export const removeTokenAction = () => ({
+export const removeToken = () => ({
   type: 'TOKEN_REMOVE',
 });
 

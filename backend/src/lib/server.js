@@ -5,7 +5,7 @@ import * as db from './db'
 import express from 'express'
 import middleware from '../middleware'
 import {log, logError} from './util.js'
-import cors from 'cors';
+// import cors from 'cors';
 
 // STATE
 
