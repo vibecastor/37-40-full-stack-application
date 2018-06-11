@@ -1,19 +1,8 @@
-
-# 401 JS --  Lab 39 Form Validation
+#401JS--Lab38Full-StackTokenManagement
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was integrate form validation error checking into the front-end of a full-stack react/redux application.  
-- Home 
-    -  When a user navigates to the home route they are presented with three routes (home, login, and signup).  The also have access to the "Sign up to our app" and "Login to our app" links below a welcome message.
-- Login
-    - When a user navigates to the Login route, they are presented with the login view of the auth-form component.  They can enter a username and password which tiggers a get request to the database and returns a token if the username and password are valid.  These fields require a minimum of 7 characters on input.
-- Signup
-    - When a user navigates to the Signup route, they are shown the sign-up view of the auth-form component that contains three fields.
-        - username:  this field must contain at least 7 characters to pass our validation check  
-        - email:  This field must also contain a minimum of 7 characters in addition to passing the built in html5 form validation that ensures the email is in the correct form of an email with a @ symbol included.
-        - password: the password field mush also contain a minimum of 7 characters.
-
-  
+This is a lab assignment for Code Fellows 401 javascript.  The objective was to integrate token persistence into our existing React applicaiton using cookies.  When a user completes the Auth-form on the sign-up route, a POST request is made to the database.  If the request is successful, a token is returned on the response.  
+That user can then logout and later return and login into the application.  Upon submit of the Auth-form on the login route, a GET request is made that contains the username and password.  If the username and password exist on the database then a token is generated ans returned to the session.  
 
 ## Getting Started
 In order to get started with this code please fork and clone the repo. You will need a number of dependencies in order to run this project. See the package.json for a list of dependencies. The front end of this project runs via a webpack build.  The webpack.dev.js and webpack.common.js files are set to build the front end application to run in the browser using the npm run watch command.  Ensure you run this is the frontend directory. This script will run a development version of the project by enabling webpack-dev-server which hot reloads the build based on changes to the code and will open a local version of the project in your browser.  Note: webpack-dev-server is not suitable for production code.
