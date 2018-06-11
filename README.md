@@ -1,9 +1,19 @@
 
-# 401 JS --  Lab 37 Full-Stack Auth
+# 401 JS --  Lab 39 Form Validation
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was to build user authentication for a full-stack React/Redux application  using basic auth and bearer auth conventions.  
-This application contains asyncronous as well as syncronous action creators that are triggered by a users behavior.  For example, when a user attempts to signup or login an action creator is triggered onSubmit of a form element which triggers a state change in the redux store.  This functionality is asyncronous as an HTTP POST request is sent by the server to a MongoDB.  The front end then needs to wait for a response to be returned by the server.  Once the response is received, the functions are process in the call stack sycronously.    
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was integrate form validation error checking into the front-end of a full-stack react/redux application.  
+- Home 
+    -  When a user navigates to the home route they are presented with three routes (home, login, and signup).  The also have access to the "Sign up to our app" and "Login to our app" links below a welcome message.
+- Login
+    - When a user navigates to the Login route, they are presented with the login view of the auth-form component.  They can enter a username and password which tiggers a get request to the database and returns a token if the username and password are valid.  These fields require a minimum of 7 characters on input.
+- Signup
+    - When a user navigates to the Signup route, they are shown the sign-up view of the auth-form component that contains three fields.
+        - username:  this field must contain at least 7 characters to pass our validation check  
+        - email:  This field must also contain a minimum of 7 characters in addition to passing the built in html5 form validation that ensures the email is in the correct form of an email with a @ symbol included.
+        - password: the password field mush also contain a minimum of 7 characters.
+
+  
 
 ## Getting Started
 In order to get started with this code please fork and clone the repo. You will need a number of dependencies in order to run this project. See the package.json for a list of dependencies. The front end of this project runs via a webpack build.  The webpack.dev.js and webpack.common.js files are set to build the front end application to run in the browser using the npm run watch command.  Ensure you run this is the frontend directory. This script will run a development version of the project by enabling webpack-dev-server which hot reloads the build based on changes to the code and will open a local version of the project in your browser.  Note: webpack-dev-server is not suitable for production code.
@@ -15,7 +25,7 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
 
 - Reducer/token.js: This module contains the reducer function that takes in the previous state and returns a new application state. It can SET a token or REMOVE a token.
 
-- Action/auth.js: This module contains the action functions which are part of the reducer. It defines two sync functions, setTokenAction and removeTokenAction as well as two async functions, signupRequest and loginRequest.  These functions are async because they are waiting on a response from a RESTAPI.
+- Action/auth.js: This module contains the action functions which are part of the reducer. It defines two sync functions, setToken and removeTokenAction as well as two async functions, signupRequest and loginRequest.  These functions are async because they are waiting on a response from a RESTAPI.
 
 - App.js: this component contains the routes to AuthLanding, for signup and login utilizing the Auth-form and dashboard components.
 
@@ -38,14 +48,12 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
         - This module sets up a middleware function call that iterates over the redux store object and calls a next callback when an action is dispatched to change the state of the redux store. If does this by currying multiple callbacks and storing the result of an action into a result binding and current state of the store into a state binding.
 
 ##Change Log
-- 06-05-2018 1:00pm - 2:00pm - built project repo, set-up back-end
-- 06-05-2018 2:00pm - 3:30pm - built front-end project scaffolding and starter work on the Actions, lib, reducer and routes
-- 06-05-2018 03:45pm - 05:00pm - built the components
-- 06-05-2018 05:00pm - 6:30pm -troubleshooting the POST and GET routes.  
-- 06-05-2018 06:30pm - 07:00pm - Project working
-- 06-05-2018 10:30pm - 11:30pm - confirming functionality and documentation
+- 06-09-2018 11:00am - 2:00pm - added actions and reducers and new validations to the Auth components
+- 06-09-2018 2:00pm - 4:00pm -troubleshooting fetchCookie and deleteCookie
+- 06-09-2018 05:00pm - 06:00pm - Project working
+- 06-11-2018 1:00pm - 2:00pm - confirming functionality and documentation
 
 ##Credits and Collaborations
 - Thanks Vinicio for the demo code.  
 - Thanks to 'slugbyte/sluggram' which is the origin of the forked backend repo running in this project. 
-- Special thanks to Daniel Shelton, Ryan Groesch and Sarah Geyer for assistance and troubleshooting and being generally awesome rubber ducks.
+

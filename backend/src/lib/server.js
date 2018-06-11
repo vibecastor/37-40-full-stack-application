@@ -5,9 +5,17 @@ import * as db from './db'
 import express from 'express'
 import middleware from '../middleware'
 import {log, logError} from './util.js'
+// import cors from 'cors';
 
 // STATE
+
+// app.use(cors({
+//   origin: 'http://localhost:8080',
+//   credentials: true,
+// }));
+
 const app = express().use(middleware)
+
 const state = {
   isOn: false, 
   http: null,
