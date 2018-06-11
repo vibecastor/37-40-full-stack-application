@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import * as authActions from 'prop-types';
-import * as routes from '../../routes'; // this might be to the strings...file....
+import * as authActions from '../../actions/auth';
+import * as routes from '../../routes';
 
 class Header extends React.Component {
   render() {
     const JSXNotLoggedIn =
       <ul>
-        <li><Link to={routes.ROOT_ROUTE}/> Home </li>
-        <li><Link to={routes.LOGIN_ROUTE}/> Login </li>
-        <li><Link to={routes.SIGNUP_ROUTE}/> Sign up! </li>
+        <li><Link to={routes.ROOT_ROUTE}> Home </Link></li>
+        <li><Link to={routes.LOGIN_ROUTE}> Login </Link></li>
+        <li><Link to={routes.SIGNUP_ROUTE}> Sign up! </Link></li>
       </ul>;
     const JSXLoggedIn =
       <ul>
-        <li><Link to={routes.DASHBOARD_ROUTE}/> Dashboard </li>
-        {/*<li><Link to={routes.PROFILE_ROUTES}/> Profile </li>*/}
+        <li><Link to={routes.DASHBOARD_ROUTE}> Dashboard </Link></li>
+        <li><Link to={routes.PROFILE_ROUTE}> Profile </Link></li>
       </ul>;
 
     return (
