@@ -15,7 +15,7 @@ export default new Router()
   .then(res.page)
   .catch(next)
 })
-.get('/profiles/me', bearerAuth, (req, res, next) => {
+.get('/profile/me', bearerAuth, (req, res, next) => {
   Profile.findOne({owner: req.user._id})
   .then(profile => {
     if(!profile)
@@ -24,12 +24,12 @@ export default new Router()
   })
   .catch(next)
 })
-.get('/profiles/:id', (req, res, next) => {
+.get('/profile/:id', (req, res, next) => {
   Profile.fetchOne(req)
   .then(res.json)
   .catch(next)
 })
-.put('/profiles/:id', bearerAuth, parserBody, (req, res, next) => {
+.put('/profile/:id', bearerAuth, parserBody, (req, res, next) => {
   Profile.update(req)
   .then(res.json)
   .catch(next)
