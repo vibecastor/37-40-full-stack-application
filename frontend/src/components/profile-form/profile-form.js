@@ -39,7 +39,7 @@ class ProfileForm extends React.Component {
           onChange={this.handleChange}
         />
 
-        <button type='submit' > {this.props.profile ? 'update' : 'create'} profile </button>
+        <button type='submit'> {this.props.profile ? 'update' : 'create'} profile </button>
       </form>
     );
   }
