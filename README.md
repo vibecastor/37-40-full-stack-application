@@ -2,7 +2,7 @@
 # 401 JS --  Lab 38 Full-Stack Token Management
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was integrate token persistence using cookies which get stored in the database via a POST route to /signup.  Then a user can logout and login at a later date by submitting a login to the /login route which triggers a GET request to the database which returns a success and a token if the username and password are correct.  
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was to add a new resource to the front end of a full-stack application called 'profiles'.  The profile resource is accessed via a new route "/profile" and lists the users username and email address that was used during the "/signup" resource creation.  The user has the ability to add a 'bio' via a test submission box and they can also edit that information.  OnClick of the "edit" button on the profile view, a PUT request is sent to the server which updates the resource in the database and redux returns the updated state.
 
 
 ## Getting Started
@@ -38,10 +38,9 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
         - This module sets up a middleware function call that iterates over the redux store object and calls a next callback when an action is dispatched to change the state of the redux store. If does this by currying multiple callbacks and storing the result of an action into a result binding and current state of the store into a state binding.
 
 ##Change Log
-- 06-07-2018 1:00pm - 2:00pm - added new components and actions.  
-- 06-09-2018 9:00am - 11:00am -troubleshooting fetchCookie and deleteCookie
-- 06-09-2018 05:00pm - 06:00pm - Project working
-- 06-11-2018 2:00pm - 2:30pm - confirming functionality and documentation
+- 06-11-2018 6:30pm - 9:00pm - added new components and actions.  
+- 06-12-2018 8:00am - 9:00am -troubleshooting 401 on the profile route
+- 06-11-2018 8:00am - 9:00pm - confirming functionality and documentation
 
 ##Credits and Collaborations
 - Thanks Vinicio for the demo code.  
