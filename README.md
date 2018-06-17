@@ -1,5 +1,5 @@
 
-# 401 JS --  Lab 38 Full-Stack Token Management
+# 401 JS --  Lab 41 Authenticated Resource
 
 ## Overview
 This is a lab assignment from Code Fellows 401 - Javascript. The objective was to add a new resource to the front end of a full-stack application called 'profiles'.  The profile resource is accessed via a new route "/profile" and lists the users username and email address that was used during the "/signup" resource creation.  The user has the ability to add a 'bio' via a test submission box and they can also edit that information.  OnClick of the "edit" button on the profile view, a PUT request is sent to the server which updates the resource in the database and redux returns the updated state.
