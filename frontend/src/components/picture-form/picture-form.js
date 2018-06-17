@@ -1,5 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
+
+
 const D23_005 = 'File Required';
 
 const fileToBase64String = (file) => {
@@ -12,7 +15,9 @@ const fileToBase64String = (file) => {
     const fileReader = new FileReader();
 
     fileReader.addEventListener('load', () => resolve(fileReader.result));
-    // missing code...
+    fileReader.addEventListener('error', reject);
+
+    return fileReader.readAsDataURL(file);
   });
 };
 
@@ -20,10 +25,9 @@ class PictureForm extends React.Component {
   constructor(props) {
     super(props); // Old school OOP, parent class was referred to as super...
 
-
     this.emptyState = {
-      preview: undefined, // base 64
-      picture: '', // this will be a path
+      preview: undefined, // base 64 for display on the browser
+      picture: '', // this will be a path used for the backend
       description: '',
     };
     this.state = this.emptyState;
@@ -35,11 +39,16 @@ class PictureForm extends React.Component {
     const { type, value, files } = event.target;
 
     if (type === 'file') {
-      fileToBase64String(file[0])
+      // ----------------------------
+      // ASYNC
+      // ----------------------------
+      fileToBase64String(files[0])
         .then(preview => this.setState({ preview }));
-
-      this.setState({
+      // ----------------------------
+      this.setState({  // Async again
         picture: files[0],
+      }, () => {
+        console.log('I will log after the state has changed');
       });
     } else {
       this.setState({
@@ -50,11 +59,14 @@ class PictureForm extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.onComplete(this.state)
+    this.props.onComplete(this.state);
+    this.setState(this.emptyState);
   }
 
 
+  // ------------------------------------------
   // LIFECYCLE HOOKS
+  // ------------------------------------------
   render() {
     return (
       <form
@@ -64,7 +76,7 @@ class PictureForm extends React.Component {
         <label>Picture</label>
         <input
           type='file'
-          name='photo'
+          name='picture'
           onChange={this.handleChange}
         />
         <label>Description</label>
@@ -80,7 +92,8 @@ class PictureForm extends React.Component {
   }
 }
 
-// PictureForm.propTypes = {
-//   onComplete: PropTypes.func,
-// };
+PictureForm.propTypes = {
+  onComplete: PropTypes.func,
+};
+
 export default PictureForm;

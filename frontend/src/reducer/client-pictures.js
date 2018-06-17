@@ -3,7 +3,7 @@ const D23_004 = 'Invalud Picture';
 
 export const validatePicture = (picture) =>  {
   if (!picture) {
-    throw new Error()
+    throw new Error(D23_003);
   }
   const {
     _id, url, description, owner,
