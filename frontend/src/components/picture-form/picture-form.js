@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import autoBind from '../../utils/index';
 
 
-const D23_005 = 'File Required';
+const fileError = 'File Required';
 
 const fileToBase64String = (file) => {
   return new Promise((resolve, reject) => {
     // errors checks first
     if (!file) {
-      return reject(new Error(D23_005));
+      return reject(new Error(fileError));
     }
     // then load the file
     const fileReader = new FileReader();
