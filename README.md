@@ -1,8 +1,8 @@
 
-# 401 JS --  Lab 41 Authenticated Resource
+# 401 JS --  Lab 42 Third Resource
 
 ## Overview
-This is a lab assignment from Code Fellows 401 - Javascript. The objective was to add a new resource to the front end of a full-stack application called 'profiles'.  The profile resource is accessed via a new route "/profile" and lists the users username and email address that was used during the "/signup" resource creation.  The user has the ability to add a 'bio' via a test submission box and they can also edit that information.  OnClick of the "edit" button on the profile view, a PUT request is sent to the server which updates the resource in the database and redux returns the updated state.
+This is a lab assignment from Code Fellows 401 - Javascript. The objective was to add a third resource to the front end of a full-stack application.  I choose to add a 'pictures' resource which connects to the backend api "photos'.  The profile resource is accessed via a route "/photos" and should add a image to the database and/or an Amazon S3 bucket.  
 
 
 ## Getting Started
@@ -27,6 +27,8 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
 
 - Dashboard.js: This module is the destination route when a user has successfully entered information into the authFrom and made it passed /signup OR /login.  
 
+- Picture-form.js:  This module includes code to create a base64 string representation of an image file which can then be 'previewed' in the rendered component in the DOM.  This component also uses the fileReader API in order to allow a user to choose an image file to upload and preview via the browser/DOM api's built in file reader.  
+
 - Redux Middleware
 
     - redux-reporter.js:  This module sets up redux middleware console message that reports out in the following cases:
@@ -38,9 +40,9 @@ This project is built using Javascript ES6 with transpilation using Babel. The c
         - This module sets up a middleware function call that iterates over the redux store object and calls a next callback when an action is dispatched to change the state of the redux store. If does this by currying multiple callbacks and storing the result of an action into a result binding and current state of the store into a state binding.
 
 ##Change Log
-- 06-11-2018 6:30pm - 9:00pm - added new components and actions.  
-- 06-12-2018 8:00am - 9:00am -troubleshooting 401 on the profile route
-- 06-11-2018 8:00am - 9:00pm - confirming functionality and documentation
+- 06-14-2018 3:00pm - 5:00pm - added new components and actions.  
+- 06-16-2018 9:00am - 1:00pm -troubleshooting an bug on upload of a photo
+- 06-17-2018 10:30pm - 11:00pm - adding documentation
 
 ##Credits and Collaborations
 - Thanks Vinicio for the demo code.  

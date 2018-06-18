@@ -33,7 +33,7 @@ class Profile extends React.Component {
   handleUpdate(profile) {
     // TODO: add validation here via catch blocks...
     this.props.profileUpdate(profile);
-    this.setState({editing: false});
+    this.setState({ editing: false });
   }
   // ----------------------------
   // LIFECYCLE HOOKS HERE
@@ -56,7 +56,7 @@ class Profile extends React.Component {
       JSXDisplay =
         <div>
           <p>{profile.bio}</p>
-          <button onClick={() => this.setState({editing: true})}> Edit</button>
+          <button onClick={() => this.setState({ editing: true })}> Edit</button>
         </div>;
       JSXProfile =
         <div>

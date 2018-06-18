@@ -13,7 +13,7 @@ class ProfileForm extends React.Component {
     autoBind.call(this, ProfileForm);
   }
 
-  // MEMBER FUNCTIONS-----
+  // ------------MEMBER FUNCTIONS-----
   handleChange(event) {
     const { value } = event.target;
     this.setState({
@@ -26,7 +26,7 @@ class ProfileForm extends React.Component {
     this.props.onComplete(this.state);
   }
 
-  // LIFECYCLE HOOKS
+  // -------------LIFECYCLE HOOKS-------
   render() {
     return (
       <form
